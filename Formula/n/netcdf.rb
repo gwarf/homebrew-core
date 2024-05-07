@@ -4,7 +4,7 @@ class Netcdf < Formula
   url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.2.tar.gz"
   sha256 "bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
@@ -32,6 +32,10 @@ class Netcdf < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "zstd"
+  end
 
   def install
     args = %w[-DENABLE_TESTS=OFF -DENABLE_NETCDF_4=ON -DENABLE_DOXYGEN=OFF]

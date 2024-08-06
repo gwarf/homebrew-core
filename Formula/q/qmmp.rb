@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.9.tar.bz2"
   sha256 "b59f7a378b521d4a6d2b5c9e37a35c3494528bf0db85b24caddf3e1a1c9c3a37"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -18,12 +19,12 @@ class Qmmp < Formula
     sha256 x86_64_linux:   "089b8e427089d593674f03477d97f7e95db8b1b2efe2bcd581f30389d802d89a"
   end
 
-  depends_on "cmake"      => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   # TODO: on linux: pipewire
   depends_on "faad2"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "flac"
   depends_on "game-music-emu"
   depends_on "jack"
@@ -56,11 +57,10 @@ class Qmmp < Formula
   uses_from_macos "curl"
 
   on_macos do
-    # musepack is not bottled on Linux
-    # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "gettext"
     depends_on "glib"
-
+    # musepack is not bottled on Linux
+    # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "musepack"
   end
 

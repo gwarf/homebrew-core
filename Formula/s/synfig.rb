@@ -1,10 +1,12 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
-  url "https://downloads.sourceforge.net/project/synfig/development/1.5.2/synfig-1.5.2.tar.gz"
+  # TODO: Update livecheck to track only stable releases when 1.6.x is available.
+  url "https://downloads.sourceforge.net/project/synfig/development/1.5.2/source/synfig-1.5.2.tar.gz"
   mirror "https://github.com/synfig/synfig/releases/download/v1.5.2/synfig-1.5.2.tar.gz"
   sha256 "0a7cff341eb0bcd31725996ad70c1461ce5ddb3c3ee9f899abeb4a3e77ab420e"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
@@ -30,7 +32,7 @@ class Synfig < Formula
 
   depends_on "cairo"
   depends_on "etl"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "fontconfig"
   depends_on "freetype"

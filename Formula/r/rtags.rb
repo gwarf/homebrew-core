@@ -57,6 +57,8 @@ class Rtags < Formula
   depends_on "llvm"
   depends_on "openssl@3"
 
+  uses_from_macos "zlib"
+
   fails_with gcc: "5"
 
   def install

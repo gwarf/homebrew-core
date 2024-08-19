@@ -1,8 +1,8 @@
 class Bob < Formula
   desc "Version manager for neovim"
   homepage "https://github.com/MordechaiHadad/bob"
-  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "71c5cbb8f05f1375934daf483a62889e1129f2537cf6e21ecc5b6e0ac40cd02e"
+  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "fbfb0e7dec49d0cadfe4ea927e9f4aa9aa9b89b77335028464cfcab0b1cfaa85"
   license "MIT"
 
   bottle do
@@ -16,6 +16,12 @@ class Bob < Formula
   end
 
   depends_on "rust" => :build
+
+  # build patch for `bob list` command
+  patch do
+    url "https://github.com/MordechaiHadad/bob/commit/a5c0cda1e670d983599a4b0b561fcf430bfc1359.patch?full_index=1"
+    sha256 "84c2f9647f92e14eb81f9b819b0e4203f79b464341c5bfb0cd9f30d2a850495f"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

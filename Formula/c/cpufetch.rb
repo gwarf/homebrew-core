@@ -37,7 +37,7 @@ class Cpufetch < Formula
     actual = shell_output("#{bin}/cpufetch --debug 2>&1", expected_result).lines[line].strip
 
     system_name = OS.mac? ? "macOS" : OS.kernel_name
-    arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : Hardware::CPU.arch
+    arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : "x86 / x86_64"
     expected = "cpufetch v#{version} (#{system_name} #{arch} build)"
 
     assert_match expected, actual
